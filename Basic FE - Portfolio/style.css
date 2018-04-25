@@ -84,6 +84,11 @@ body{
 .dropdown-item.active, .dropdown-item:active{background-color: #FFF !important; color: #16181b !important;}
 
 form i{color: grey;}
+
+.form-control:focus{
+    border-color: #cfd5db !important;
+    box-shadow: none !important;
+}
 .btn-dark{background-color: #51515a; color: #FFF;}
 
 footer{margin-top: 20px; background-color: #000;}
@@ -96,7 +101,7 @@ footer li{border-bottom: 0.5px solid #999; padding-left: 0 !important;}
     border-bottom: 0.5px solid #999 !important;
 }
 
-.list-group-item a{color: #999 !important; text-decoration: none;}
+.list-group-item a{color: #999 !important;}
 
 @media (min-width: 768px) {
     footer .list-group {
@@ -120,5 +125,12 @@ footer li{border-bottom: 0.5px solid #999; padding-left: 0 !important;}
 @media (min-width: 1024px) {
     .portfolios-sm ul{justify-content: space-around !important;}
     .main h2{font-size: 3em;}
+
+    .portfolios-sm li a:hover{
+    background-color: #FFF; 
+    color: #000;
+    }
+
+    .list-group-item a:hover{color: #FFF !important; text-decoration: none;}
 }
 
