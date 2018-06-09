@@ -6,75 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fermat</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-        crossorigin="anonymous">
-
+    <script>"https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"</script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center">Pierre de Fermat</h1>
-        <p>(Beaumont, Francia, 1601 - Castres, id., 1665) Matemático francés. Continuador de la obra de Diofanto en el campo de los
-        números enteros y cofundador del estudio matemático de la probabilidad, junto con Pascal, y de la geometría analítica, junto
-        con Descartes, Pierre de Fermat mantuvo correspondencia con los grandes científicos de su época y gozó ya en vida de gran
-        estima e inmensa reputación, si bien su natural modestia y su modo de trabajar, en exceso diletante, perjudicó la divulgación
-        de sus aportaciones.</p>
-        
-        <h3>Bigrafia</h2>
-        <p>La existencia de este ilustre matemático fue ciertamente sencilla y prosaica, y se conoce poco de sus primeros
-        años. Hijo de Dominique Fermat, burgués y segundo cónsul de Beaumont, estudió leyes en Toulouse y quizá en Burdeos para poder
-        aspirar al ejercicio de la magistratura; llegado, en efecto, a consejero del Parlamento de la ciudad de Toulouse, fue progresando
-        allí en su labor lenta y tranquilamente, distinguiéndose por su probidad, su tacto y sus corteses maneras.</p>
+    <main id="main">
+        <div>
+            <h1 id="title">Pierre de Fermat</h1>
+            <p>(Beaumont, Francia, 1601 - Castres, id., 1665) Matemático francés. Continuador de la obra de Diofanto en el campo de los
+            números enteros y cofundador del estudio matemático de la probabilidad, junto con Pascal, y de la geometría analítica, junto
+            con Descartes, Pierre de Fermat mantuvo correspondencia con los grandes científicos de su época y gozó ya en vida de gran
+            estima e inmensa reputación, si bien su natural modestia y su modo de trabajar, en exceso diletante, perjudicó la divulgación
+            de sus aportaciones.</p>
+            
+            <h3>Bigrafia</h2>
+            <p>La existencia de este ilustre matemático fue ciertamente sencilla y prosaica, y se conoce poco de sus primeros
+            años. Hijo de Dominique Fermat, burgués y segundo cónsul de Beaumont, estudió leyes en Toulouse y quizá en Burdeos para poder
+            aspirar al ejercicio de la magistratura; llegado, en efecto, a consejero del Parlamento de la ciudad de Toulouse, fue progresando
+            allí en su labor lenta y tranquilamente, distinguiéndose por su probidad, su tacto y sus corteses maneras.</p>
+            
+            <div id="img-div">
+                <figure>
+                    <img id="image" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Pierre_de_Fermat.jpg" alt="Fotografia de Fermat">
+                    <figcaption id="img-caption">Picture of Pierre de Fermat</figcaption>
+                </figure>
+            </div>
 
-        <img class="rounded mx-auto d-block" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Pierre_de_Fermat.jpg" alt="Fotografia de Fermat">
+            <div id="tribute-info">
+                <p>Interesado por las matemáticas, consagró a ellas su tiempo de ocio, y hacia 1637 figuraba entre los principales cultivadores
+                europeos de esta ciencia. Hizo amistad con el matemático Carcavi, quien le relacionó con el padre Marin Mersenne, amigo de
+                todos los doctos franceses de la época. El padre Mersenne le puso en contacto con Roberval y con el gran René Descartes (1637).</p>
+                
+                <p>El trato con el difícil e inquieto genio de Descartes no resultaba fácil para nadie, ni tampoco lo fue para Pierre de Fermat,
+                a pesar de su discreción: ambos discutieron sobre cuestiones científicas (la infracción de la luz y el método de los máximos
+                y mínimos). Fueron necesarias la mediación de Roberval y toda la prudencia de Fermat para mantener por lo menos fríamente
+                correctas las relaciones personales entre los dos sabios. Muy viva, en cambio, fue la amistad entre Fermat y otro gran matemático
+                de la época, Blaise Pascal; ambos se conocieron también gracias a Carcavi.</p>
+                
+                <p>De talante modesto, Pierre de Fermat sólo llego a dar a la imprenta su monografía Dissertatio geometrica de linearum curvarum
+                comparatione, e hizo públicos algunos de sus mayores descubrimientos sólo por medio de breves comunicaciones verbales y epistolares.
+                Ello bastó para darlo a conocer como uno de los grandes matemáticos del momento, pero sus deberes profesionales y su particular
+                forma de trabajar redujeron en gran medida el impacto de su obra, extremadamente prolífica. Tenía por ejemplo la costumbre
+                de anotar, en los márgenes de los libros que leía, sus ideas y sus descubrimientos, desgraciadamente sin sus demostraciones,
+                por falta de espacio. Superando no pocas dificultades, sus escritos fueron publicados póstumamente por su hijo Samuel en
+                1679, en un volumen titulado Varia opera matemática D. Petri de Fermat: Senatoris Tolosani.</p>
+            </div>
 
-        <p>Interesado por las matemáticas, consagró a ellas su tiempo de ocio, y hacia 1637 figuraba entre los principales cultivadores
-        europeos de esta ciencia. Hizo amistad con el matemático Carcavi, quien le relacionó con el padre Marin Mersenne, amigo de
-        todos los doctos franceses de la época. El padre Mersenne le puso en contacto con Roberval y con el gran René Descartes (1637).</p>
-        
-        <p>El trato con el difícil e inquieto genio de Descartes no resultaba fácil para nadie, ni tampoco lo fue para Pierre de Fermat,
-        a pesar de su discreción: ambos discutieron sobre cuestiones científicas (la infracción de la luz y el método de los máximos
-        y mínimos). Fueron necesarias la mediación de Roberval y toda la prudencia de Fermat para mantener por lo menos fríamente
-        correctas las relaciones personales entre los dos sabios. Muy viva, en cambio, fue la amistad entre Fermat y otro gran matemático
-        de la época, Blaise Pascal; ambos se conocieron también gracias a Carcavi.</p>
-
-        <p>De talante modesto, Pierre de Fermat sólo llego a dar a la imprenta su monografía Dissertatio geometrica de linearum curvarum
-        comparatione, e hizo públicos algunos de sus mayores descubrimientos sólo por medio de breves comunicaciones verbales y epistolares.
-        Ello bastó para darlo a conocer como uno de los grandes matemáticos del momento, pero sus deberes profesionales y su particular
-        forma de trabajar redujeron en gran medida el impacto de su obra, extremadamente prolífica. Tenía por ejemplo la costumbre
-        de anotar, en los márgenes de los libros que leía, sus ideas y sus descubrimientos, desgraciadamente sin sus demostraciones,
-        por falta de espacio. Superando no pocas dificultades, sus escritos fueron publicados póstumamente por su hijo Samuel en
-        1679, en un volumen titulado Varia opera matemática D. Petri de Fermat: Senatoris Tolosani.</p>
-
-        <h3>Obra Matemática</h3>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a href="https://es.wikipedia.org/wiki/Espiral_de_Fermat" target="_blank">Espiral de Fermat</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://es.wikipedia.org/wiki/N%C3%BAmeros_amigos"  target="_blank">Números amigos</a>
-            </li>
-            <li class="list-group-item"
-            ><a href="http://enciclopedia.us.es/index.php/N%C3%BAmero_primo_de_Fermat"  target="_blank">Números primos</a>
-        </li>
-            <li class="list-group-item">
-                <a href="https://es.wikipedia.org/wiki/Teorema_de_Fermat_sobre_la_suma_de_dos_cuadrados"  target="_blank">Teorema sobre la suma de dos cuadrados</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://es.wikipedia.org/wiki/Peque%C3%B1o_teorema_de_Fermat"  target="_blank">Pequeño teorema de Fermat</a>
-            </li>
-            <li class="list-group-item">
-                <a href="https://es.wikipedia.org/wiki/Principio_de_Fermat"  target="_blank">Principio de Fermat</a
-                ></li>
-            <li class="list-group-item">
-                <a href="https://es.wikipedia.org/wiki/%C3%9Altimo_teorema_de_Fermat"  target="_blank">Último teorema de Fermat</a>
-            </li>
-        </ul>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
+            <h3>Obra Matemática</h3>
+            <ul>
+                <li>
+                    <a id="tribute-link" href="https://es.wikipedia.org/wiki/Espiral_de_Fermat" target="_blank">Espiral de Fermat</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="https://es.wikipedia.org/wiki/N%C3%BAmeros_amigos"  target="_blank">Números amigos</a>
+                </li>
+                <li>
+                    <a id="tribute-link" href="http://enciclopedia.us.es/index.php/N%C3%BAmero_primo_de_Fermat"  target="_blank">Números primos</a>
+                </li>
+                <li>
+                    <a id="tribute-link" href="https://es.wikipedia.org/wiki/Teorema_de_Fermat_sobre_la_suma_de_dos_cuadrados"  target="_blank">Teorema sobre la suma de dos cuadrados</a>
+                </li>
+                <li>
+                    <a id="tribute-link" href="https://es.wikipedia.org/wiki/Peque%C3%B1o_teorema_de_Fermat"  target="_blank">Pequeño teorema de Fermat</a>
+                </li>
+                <li>
+                    <a id="tribute-link" href="https://es.wikipedia.org/wiki/Principio_de_Fermat"  target="_blank">Principio de Fermat</a
+                    >
+                </li>
+                <li>
+                    <a href="https://es.wikipedia.org/wiki/%C3%9Altimo_teorema_de_Fermat"  target="_blank">Último teorema de Fermat</a>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>Tribute page project for freeCodeCamp - 2018</p>
+    </footer>
 </body>
 </html>

@@ -16,8 +16,7 @@
 </head>
 <body>
     <div class="fluid-container">
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <nav id="banner" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
                 <a class="navbar-brand" href="#"><span><strong>DMG</strong></span>Stay Hungry</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +48,7 @@
                     </ul>
                 </div>
             </nav>
-        </header>
+        <!-- end header--><a id="top" name="home"></a>
         <main>
             <section>
                 <div class="fluid-container main">
@@ -130,6 +129,11 @@
                 </div>
             </section>
         </main>
+        <div class="scroll-top">
+            <a class="button scrollable" href="#top">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+        </div>
         <footer>
             <div class="fluid-container">
                 <div class="foot-social">
@@ -161,5 +165,8 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha384-leGYpHE9Tc4N9OwRd98xg6YFpB9shlc/RkilpFi0ljr3QD4tFoFptZvgnnzzwG4Q"
+        crossorigin="anonymous"></script>
+    <script src="dynamics.js"></script>
 </body>
 </html>
