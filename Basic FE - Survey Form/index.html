@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>freeCodeCamp - Survey Form</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="form-container">
+      <h1 id="title">Survey Form</h1>
+      <p id="description">Give us your feedback<br>It will allow us to improve our service</p>
+
+      <form id="survey-form" action="" method="get">
+
+         <div class="label">
+            <label for="name" id="name-label">* Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter your name" required>
+         </div>
+
+         <div class="label">
+            <label for="" id="email-label">* Email:</label>
+            <input type="email" name="email" id="email" placeholder="Enter your e-mail" required>
+         </div>
+
+         <div class="label">
+            <label for="" id="number-label">* Age:</label>
+            <input type="number" name="age" id="number" min="1" max="110" placeholder="Enter your age" required>
+         </div>
+
+         <div class="label">
+            <label for="">Pick you preference:</label>
+            <select name="" id="dropdown">
+               <option disabled selected value>Select an option</option>
+               <option value="ddd">aaa</option>
+               <option value="ddd">sss</option>
+               <option value="ddd">fff</option>
+               <option value="ddd">zzzz</option>
+            </select>
+         </div>
+
+         <div class="label">
+            <label>What the fuck?</label>
+            <div class="combo-wraper">
+               <div class="combo-inner">
+                  <input type="radio" name="group-radio" id="" value="1">
+                  <label class="combo-label">avzxcv</label>          
+               </div>
+               
+               <div class="combo-inner">
+                  <input type="radio" name="group-radio" id="" value="2">
+                  <label class="combo-label">avzxcv</label>
+               </div>
+               
+               <div class="combo-inner">
+                  <input type="radio" name="group-radio" id="" value="3">
+                  <label class="combo-label">avzxcv</label>            
+               </div>
+            </div>
+         </div>
+
+         <div class="label">
+            <label>Pick your favorite:</label>
+            <select name="" id="dropdown">
+               <option disabled selected value="sss">Select an option</option>
+               <option value="ddd">vvvvvv</option>
+               <option value="ddd">yyyy</option>
+               <option value="ddd">ppppp</option>
+               <option value="ddd">kkkkk</option>
+            </select>
+         </div>
+
+         <div class="label">
+            <label for="">Select your interests:</label>
+            <div class="combo-wraper">
+               <div class="combo-inner">
+                  <input type="checkbox" name="hobbies" value="Football">
+                  <label class="combo-label">dsfg</label>
+               </div>
+               <div class="combo-inner">
+                  <input type="checkbox" name="hobbies" value="Tennis">
+                  <label class="combo-label">dsfg</label>
+               </div>
+               <div class="combo-inner">
+                  <input type="checkbox" name="hobbies" value="Reading">
+                  <label class="combo-label">dsfg</label>
+               </div>
+              <div class="combo-inner">
+                  <input type="checkbox" name="hobbies" value="asfg">
+                  <label class="combo-label">dsfg</label>
+              </div>
+               <div class="combo-inner">
+                  <input type="checkbox" name="hobbies" value="asf">
+                  <label class="combo-label">dsfg</label>
+               </div>
+               <div class="combo-inner">
+                  <input type="checkbox" name="hobbies" value="asdv">
+                  <label class="combo-label">dsfg</label>
+               </div>
+              <div class="combo-inner">
+                  <input type="checkbox" name="hobbies" value="asdv">
+                  <label class="combo-label">dsfg</label>
+              </div>
+            </div>
+         </div>   
+
+         <div class="label">
+            <label for="">Other Suggenstions:</label>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Enter your message here"></textarea>
+         </div>
+         <button type="submit" id="submit">Submit</button>
+      </form>
+   </div>
+   <footer>
+      <div class="footer-container">
+         <p>freeCodeCamp Responsive Web Design Projects</p>
+         <p>Build a Survey Form</p>
+      </div>
+   </footer>
+</body>
+</html>
