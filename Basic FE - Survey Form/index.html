@@ -10,7 +10,7 @@
 <body>
    <div class="form-container">
       <h1 id="title">Survey Form</h1>
-      <p id="description">Give us your feedback<br>It will allow us to improve our service</p>
+      <p id="description">Give us some details about you.<br>It will allow us to tailor our proposal</p>
 
       <form id="survey-form" action="" method="get">
 
@@ -30,83 +30,79 @@
          </div>
 
          <div class="label">
-            <label for="">Pick you preference:</label>
+            <label for="">Company Size:</label>
             <select name="" id="dropdown">
                <option disabled selected value>Select an option</option>
-               <option value="ddd">aaa</option>
-               <option value="ddd">sss</option>
-               <option value="ddd">fff</option>
-               <option value="ddd">zzzz</option>
+               <option value="ddd">0-19</option>
+               <option value="ddd">20-49</option>
+               <option value="ddd">50-199</option>
+               <option value="ddd">200 or more</option>
             </select>
          </div>
 
          <div class="label">
-            <label>What the fuck?</label>
+            <label class="flex-start">Area of Interest</label>
             <div class="combo-wraper">
                <div class="combo-inner">
                   <input type="radio" name="group-radio" id="" value="1">
-                  <label class="combo-label">avzxcv</label>          
+                  <label class="combo-label">Front-End</label>          
                </div>
                
                <div class="combo-inner">
                   <input type="radio" name="group-radio" id="" value="2">
-                  <label class="combo-label">avzxcv</label>
+                  <label class="combo-label">Back-End</label>
                </div>
                
                <div class="combo-inner">
                   <input type="radio" name="group-radio" id="" value="3">
-                  <label class="combo-label">avzxcv</label>            
+                  <label class="combo-label">Full-Stack</label>            
                </div>
             </div>
          </div>
 
          <div class="label">
-            <label>Pick your favorite:</label>
+            <label>Pick your position:</label>
             <select name="" id="dropdown">
                <option disabled selected value="sss">Select an option</option>
-               <option value="ddd">vvvvvv</option>
-               <option value="ddd">yyyy</option>
-               <option value="ddd">ppppp</option>
-               <option value="ddd">kkkkk</option>
+               <option value="ddd">Developer</option>
+               <option value="ddd">Arquitect</option>
+               <option value="ddd">Sales</option>
+               <option value="ddd">Marketing</option>
             </select>
          </div>
 
          <div class="label">
-            <label for="">Select your interests:</label>
+            <label  class="flex-start">Select your interests:</label>
             <div class="combo-wraper">
                <div class="combo-inner">
                   <input type="checkbox" name="hobbies" value="Football">
-                  <label class="combo-label">dsfg</label>
+                  <label class="combo-label">Website Design</label>
                </div>
                <div class="combo-inner">
                   <input type="checkbox" name="hobbies" value="Tennis">
-                  <label class="combo-label">dsfg</label>
+                  <label class="combo-label">Mobile App Design</label>
                </div>
                <div class="combo-inner">
                   <input type="checkbox" name="hobbies" value="Reading">
-                  <label class="combo-label">dsfg</label>
+                  <label class="combo-label">HTML Email Design</label>
                </div>
               <div class="combo-inner">
                   <input type="checkbox" name="hobbies" value="asfg">
-                  <label class="combo-label">dsfg</label>
+                  <label class="combo-label">Web Maintenance</label>
               </div>
                <div class="combo-inner">
                   <input type="checkbox" name="hobbies" value="asf">
-                  <label class="combo-label">dsfg</label>
+                  <label class="combo-label">IOS (Apple)</label>
                </div>
                <div class="combo-inner">
                   <input type="checkbox" name="hobbies" value="asdv">
-                  <label class="combo-label">dsfg</label>
+                  <label class="combo-label">Android</label>
                </div>
-              <div class="combo-inner">
-                  <input type="checkbox" name="hobbies" value="asdv">
-                  <label class="combo-label">dsfg</label>
-              </div>
             </div>
          </div>   
 
          <div class="label">
-            <label for="">Other Suggenstions:</label>
+            <label  class="flex-start">Additional Information:</label>
             <textarea name="" id="" cols="30" rows="10" placeholder="Enter your message here"></textarea>
          </div>
          <button type="submit" id="submit">Submit</button>
