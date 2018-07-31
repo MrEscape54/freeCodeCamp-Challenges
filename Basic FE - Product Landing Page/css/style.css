@@ -1,0 +1,263 @@
+body {
+   font-family:'Raleway', sans-serif !important; color: rgb(139, 139, 139) !important;
+}
+
+hr {
+  border: 0.2px solid #ccc; 
+  margin-top: 41px; 
+  width: 95%;
+  position: fixed;
+  z-index: 2;
+}
+
+img[alt="logo"] {width: 35px;}
+
+img[alt="slogan"] {width: 55px;}
+
+.logo-images {
+  text-align: center;
+  margin-top: 97px;
+  padding: 6px;
+  background: #f3f3f3;
+}
+
+a{text-decoration: none;}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+li {display: inline-block; }
+
+#header {
+   padding: 0 30px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.scart {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  z-index: 3;
+}
+
+.nav-container {
+  width: 100%;
+  position: fixed; 
+  padding: 45px 5px 10px;
+  background-color: white;
+}
+
+#nav-bar {
+  text-align: center;
+  background-color: white;
+  padding-top: 10px;
+}
+
+.nav-link {
+   font-size: 12px; 
+   letter-spacing: 0.2em;
+   display: inherit;
+   color: inherit; 
+   padding: 10px 10px 0;
+   border-top: 2px solid transparent;
+}
+
+.nav-link:hover{
+   border-top: 2px solid red;
+   transition-duration: 0.4s;
+   transition-property: all;
+   transition-timing-function: ease-in-out;
+}
+
+svg{
+   color: #DCDC;
+ }
+
+ .fa-search {margin-right: 30px;}
+
+ .badge{
+   background-color: tomato;
+   color: white;
+   font-weight: 600;
+   border-radius: 10px;
+   padding-left: 5px;
+   padding-right: 5px;
+   padding-bottom: 2px;
+   font-size: 0.8em;
+ }
+
+/* -------------------------------------main-----------------*/
+ main h2 {
+  color: black;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 30px;
+ }
+
+ main p {
+  width: 80%;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 17px;
+  letter-spacing: 0.1em;
+  line-height: 1.4em;
+ }
+
+.items-list{
+  width: 300px;
+  padding: 3px;
+  margin: 5px;
+  border: 0.5px solid lightgrey;
+}
+
+#video{
+  width: 390px;
+  height: 195px;
+  display: block;
+  border-width: 0;
+  margin: 60px auto;
+}
+
+/* ---------------------------------------footer----------------- */
+
+ footer{
+  background-color: black;
+  color: #999;
+  font-size: 0.8em;
+  }
+  
+  footer .container{
+  padding: 0 5% 5px;
+  color: white;
+  }
+  footer .container .primera-fila > div, footer .container .segunda-fila > div{
+  padding-top: 40px;
+  }
+  
+  footer h6{
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1em;
+  }
+  
+  .foot-contacto a{
+    padding-top: 2px;
+  }
+  
+  .input-wrap input{
+    border: 1px solid #fff;
+    height: 40px;
+    background-color: transparent;
+    padding: 0 10px;
+    width: 65%;
+    margin-top: .5em;
+  }
+  
+  .input-wrap{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #submit{
+    background-color: #fff;
+    border-color: #fff;
+    height: 40px;
+    color: #000;
+    text-transform: uppercase;
+    width: 30%;
+    margin-top: .5em;
+    border-style: none;
+  }
+  
+  footer ul{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer li{
+    padding: 10px 0;
+    border-bottom: 0.5px solid #999;
+  }
+  
+  footer li:first-child{
+  padding-top: 0
+  }
+  
+  footer a, footer address{
+    text-decoration: none;
+    color: #999;
+    margin-bottom: 5px;
+  }
+  
+  
+  .foot-social{margin-top: -10px;}
+  
+  .copyright{
+    color: #999;
+    font-size: 0.7em;
+    text-align: center;
+  }
+
+
+  /* ------------------------MEDIA QUERIES---------------------------*/
+
+  @media (min-width: 768px) {
+    
+    .primera-fila, .segunda-fila{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .segunda-fila{align-items: baseline;}
+
+  .copyright {
+    clear: both;
+  }
+
+  .nav-link{
+    padding: 10px 20px 0;
+  }
+
+  .foot-newsletter, .foot-contacto, .foot-info, .foot-social {
+    width: 40%;
+  }
+
+  .foot-newsletter button {
+    width: 36.5%;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .primera-fila, .segunda-fila{
+    width: 50%;
+    float: left;
+  }
+
+  .input-wrap{
+  flex-direction: column;
+  }
+
+  #submit{
+    width: 100%;
+  }
+
+  .foot-newsletter input{ width: 100%;}
+  .foot-newsletter button{width: 100%; height: 30px; cursor: pointer;}
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>FCC - Product Landing Page</title>
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/sanitize.css">
+   <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
+   <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+</head>
+<body>
+   <header id="header">
+      <div class="scart">
+            <i class="fas fa-search fa-lg"></i>
+            <span>
+               <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
+               <span class="badge">1</span>
+            </span>
+      </div>
+
+      <hr>
+
+      <div class="nav-container">
+         <nav id="nav-bar">
+            <ul>
+               <li><a class="nav-link" href="#home">HOME</a></li>
+               <li><a class="nav-link" href="#products">PRODUCTS</a></li>
+               <li><a class="nav-link" href="#contact">CONTACT</a></li>
+               <li><a class="nav-link" href="#form">FAQ</a></li> <!-- Agregar link to the sections -->
+            </ul>
+         </nav>
+      </div>
+
+      <div class="logo-container" id="home">
+            <a href="index.html">
+               <div class="logo-images">
+                  <img id="header-img" src="img/logo.png" alt="logo">
+                  <img src="img/logo-left.png" alt="slogan">
+               </div>
+            </a>
+         </div>
+   </header>
+
+   <main>
+      <div>
+         <h2>The coolest Left-Handed World Shop</h2>
+         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt mollitia dolore veritatis alias consectetur.</p>
+      </div>
+
+      <div class="items-container" id="products">
+        <ul>
+            <li><a href="#"><img class="items-list" src="img/img1.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list" src="img/img2.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img3.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img4.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img5.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img6.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img7.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img8.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img9.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img10.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img11.jpg" alt=""></a></li>
+            <li><a href="#"><img class="items-list"src="img/img12.jpg" alt=""></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <iframe id="video" src="https://www.youtube.com/embed/3KRFvceq9y0">
+        </iframe>
+      </div>
+   </main>
+   <footer>
+      <div class="container">
+          <div class="primera-fila">
+              <div class="foot-newsletter">
+                  <h6>Email List</h6>
+                  <form class="newsletter" id="form" action="https://www.freecodecamp.com/email-submit">
+                      <div class="input-wrap">
+                          <input type="email" id="email" placeholder="Enter your email" name="email">
+                          <input type="submit" id="submit"></input>
+                      </div>
+                  </form>
+                  <p style="margin-bottom: 0;">Get the lastest news and special offers</p>
+              </div>
+
+              <div class="foot-contacto" id="contact">
+                  <h6>Contact</h6>
+                  <address>
+                      5th Av, 2353 (1233), NY City
+                  </address>
+                  <a style="display: block" href="tel:+54 11 4248 7979">+54 11 4248 7979</a>
+                  <a href="mailto:info@nyd.com">info@lefthanded.com</a>
+              </div>
+          </div>
+
+          <div class="segunda-fila">
+              <div class="foot-info">
+                  <h6>Company Information</h6>
+                  <ul>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="#">About us</a></li>
+                      <li><a href="{{route('contacto')}}">Contact</a></li>
+                      <li><a href={{route('faq')}}>FAQ</a></li>
+                  </ul>
+              </div>
+
+              <div class="foot-social">
+                  <h6>Follow Us</h6>
+                  <ul>
+                      <li id="instagram"><a href="#"><i class="fab fa-instagram fa-lg"></i> Instagram</a></li>
+                      <li id="facebook"><a href="#"><i class="fab fa-facebook fa-lg"></i> Facebook</a></li>
+                      <li id="pinterest"><a href="#"><i class="fab fa-pinterest fa-lg"></i> Pinterest</a></li>
+                      <li id="twitter"><a href="#"><i class="fab fa-twitter fa-lg"></i> Twitter</a></li>
+                  </ul>
+              </div>
+          </div>
+          <p class="copyright">Copyright 2018 - LDD</p>
+      </div>
+  </footer>
+</body>
+</html>
