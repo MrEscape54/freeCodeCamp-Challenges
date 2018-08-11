@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Angular Technical Documentation</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,600" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="top-wrapper">
+      <img src="img/logo-nav@2x.png" alt="logo">
+    </div>
+    
+    <div class="navbar">
+      <nav id="navbar">
+        <header>
+          <h3>Angular Documentation: ngModules</h3>
+        </header>
+        <ul>
+          <li>
+            <a href="#Introduction" class="nav-link">Introduction</a>
+          </li>
+          <li>
+            <a href="#JS_Modules_vs_NgModules" class="nav-link">JS Modules vs NgModules</a>
+          </li>
+          <li>
+            <a href="#Frequently_Used_NgModules" class="nav-link">Frequently Used NgModules</a>
+          </li>
+          <li>
+            <a href="#Types_of_Feature_Modules" class="nav-link">Types of Feature Modules</a>
+          </li>
+          <li>
+            <a href="#Entry_Components" class="nav-link">Entry Components</a>
+          </li>
+          <li>
+            <a href="#Feature_Modules" class="nav-link">Feature Modules</a>
+          </li>
+          <li>
+            <a href="#Providers" class="nav-link">Providers</a>
+          </li>
+          <li>
+            <a href="#Singleton_Services" class="nav-link">Singleton Services</a>
+          </li>
+          <li>
+            <a href="#Sharing_NgModules" class="nav-link">Sharing NgModules</a>
+          </li>
+          <li>
+            <a href="#NgModule_API" class="nav-link">NgModule API</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    
+    <div class="main">
+      <main id="main-doc">
+        <section class="main-section" id="Introduction">
+          <header>
+            <h2 id="intro">Introduction</h2>
+          </header>
+          <h3>Prerequisites</h3>
+          <p>A basic understanding of the following concepts:</p>
+          <ul>
+            <li><a href="#">Bootstrapping.</a></li>
+            <li><a href="#">JavaScript Modules vs. NgModules.</a></li>
+          </ul>
+          <p>NgModules configure the injector and the compiler and help organize related things together. An NgModule is a class
+            marked by the
+            <code>@NgModule</code> decorator.
+            <code>@NgModule</code> takes a metadata object that describes how to compile a component's template and how to create an injector at runtime.
+            It identifies the module's own components, directives, and pipes, making some of them public, through the
+            <code>exports</code> property, so that external components can use them.
+            <code>@NgModule</code> can also add service providers to the application dependency injectors.
+          </p>
+          <p>For an example app showcasing all the techniques that NgModules related pages cover, see the
+            <a href="#">live example</a> /
+            <a href="#">download example</a>. For explanations on the individual techniques, visit the relevant NgModule pages under the
+            NgModules section.
+          </p>
+      
+          <h3>Angular modularity</h3>
+          <p>Modules are a great way to organize an application and extend it with capabilities from external libraries.</p>
+          <p>Angular libraries are NgModules, such as <code>FormsModule</code>, <code>HttpClientModule</code>, and <code>RouterModule</code>. Many third-party libraries
+            are available as NgModules such as Material Design, Ionic, and AngularFire2.
+          </p>
+      
+          <p>NgModule metadata does the following:</p>
+      
+          <ul>
+            <li>Declares which components, directives, and pipes belong to the module.</li>
+            <li>Makes some of those components, directives, and pipes public so that other module's component templates can use them.</li>
+            <li>Imports other modules with the components, directives, and pipes that components in the current module need.</li>
+            <li>Provides services that the other application components can use.</li>
+          </ul>
+      
+          <p>Every Angular app has at least one module, the root module. You bootstrap that module to launch the application.</p>
+      
+          <p>The root module is all you need in a simple application with a few components. As the app grows, you refactor the root
+            module into feature modules that represent collections of related functionality. You then import these modules into
+            the root module.</p>
+      
+          <h3>The basic NgModule</h3>
+      
+          <p>The CLI generates the following basic app module when creating a new app.</p>
+          <pre>
+               <code>
+       imports
+        import { BrowserModule } from '@angular/platform-browser';
+        import { NgModule } from '@angular/core';
+        import { FormsModule } from '@angular/forms';
+        import { HttpClientModule } from '@angular/common/http';
+        
+        import { AppComponent } from './app.component';
+        import { ItemDirective } from './item.directive';
+      
+      
+        // @NgModule decorator with its metadata
+        @NgModule({
+          declarations: [
+            AppComponent,
+            ItemDirective
+          ],
+          imports: [
+            BrowserModule,
+            FormsModule,
+            HttpClientModule
+          ],
+          providers: [],
+          bootstrap: [AppComponent]
+        })
+        export class AppModule { }
+            </code>
+          </pre>
+      
+          <p>
+            At the top are the import statements. The next section is where you configure the @NgModule by stating what components and
+            directives belong to it (declarations) as well as which other modules it uses (imports). This page builds on Bootstrapping,
+            which covers the structure of an NgModule in detail. If you need more information on the structure of an @NgModule,
+            be sure to read Bootstrapping.
+          </p>
+        </section>
+      
+        <section class="main-section" id="JS_Modules_vs_NgModules">
+          <header>
+            <h2>JS Modules vs NgModules</h2>
+          </header>
+          <h3>Prerequisites</h3>
+          <ul>
+            <li><a href="#">JavaScript Modules vs. NgModules.</a></li>
+          </ul>
+          <p>JavaScript and Angular use modules to organize code, and though they organize it differently, Angular apps rely on
+            both.
+          </p>
+          <h3>
+            JavaScript modules
+          </h3>
+          <p>In JavaScript, modules are individual files with JavaScript code in them. To make what’s in them available, you write
+            an export statement, usually after the relevant code, like this:</p>
+          <pre>
+            <code>
+      port class AppComponent { ... }</code>
+          </pre>
+          <p>Then, when you need that file’s code in another file, you import it like this:</p>
+          <pre><code>
+      port { AppComponent } from './app.component';</code>
+          </pre>
+          <p>JavaScript modules help you namespace, preventing accidental global variables.</p>
+          <h3>NgModules</h3>
+          <p>NgModules are classes decorated with
+            <code>@NgModule</code>. The
+            <code>@NgModule</code> decorator’s
+            <code>imports</code> array tells Angular what other NgModules the current module needs. The modules in the imports array are different
+            than JavaScript modules because they are
+            <code>@NgModule</code> rather than regular JavaScript modules. Classes with an @NgModule decorator are by convention kept in their own
+            files, but what makes them an NgModule isn’t being in their own file, like JavaScript modules; it’s the presence
+            of @NgModule and its metadata.</p>
+          <p>The
+            <code>AppModule</code> generated from the Angular CLI demonstrates both kinds of modules in action:</p>
+          <pre>
+               <code>
+       These are JavaScript import statements.
+      gular doesn’t know anything about these. */
+      port { BrowserModule } from '@angular/platform-browser';
+      port { NgModule } from '@angular/core';
+      
+      port { AppComponent } from './app.component';
+      
+       The @NgModule decorator lets Angular know that 
+      is is an NgModule. */
+      gModule({
+      declarations: [
+        AppComponent
+      ],
+      imports: [     /* These are NgModule imports. */
+        BrowserModule
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
+      
+      port class AppModule { }
+               </code>
+             </pre>
+          <p>The
+            <code>NgModule</code> classes differ from JavaScript module in the following key ways:</p>
+          <ul>
+            <li>An NgModule bounds declarable classes only. Declarables are the only classes that matter to the Angular compiler.</li>
+            <li>Instead of defining all member classes in one giant file as in a JavaScript module, you list the module's classes
+              in the
+              <code>@NgModule.declarations</code> list.
+            </li>
+            <li>An NgModule can only export the declarable classes it owns or imports from other modules. It doesn't declare or export
+              any other kind of class.
+            </li>
+            <li>Unlike JavaScript modules, an
+              <code>NgModule</code> can extend the entire application with services by adding providers to the @NgModule.providers list.
+            </li>
+          </ul>
+        </section>
+      
+        <section class="main-section" id="Frequently_Used_NgModules">
+          <header>
+            <h2>Frequently Used NgModules</h2>
+          </header>
+          <h3>Prerequisites</h3>
+          <p>A basic understanding of the following concepts:</p>
+          <ul>
+            <li><a href="#">Bootstrapping.</a></li>
+            <li><a href="#">Feature Modules.</a></li>
+          </ul>
+          <p>An Angular app needs at least one module that serves as the root module. As you add features to your app, you can add
+            them in modules. The following are frequently used Angular modules with examples of some of the things they contain:</p>
+          <table>
+            <tbody>
+              <tr>
+                <th style="vertical-align: top">
+                  NgModule
+                </th>
+                <th style="vertical-align: top">
+                  Import it from
+                </th>
+                <th style="vertical-align: top">
+                  Why you use it
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <code>BrowserModule</code>
+                </td>
+                <td>
+                  <code>@angular/platform-browser</code>
+                </td>
+                <td>When you want to run your app in a browser</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>CommonModule</a></td>
+                  <td><code>@angular/common</code>
+                </td>
+                <td>When you want to use
+                  <code>NgIf</code>,
+                  <code>NgFor</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>FormsModule</code>
+                </td>
+                <td>
+                  <code>@angular/forms</code>
+                </td>
+                <td>When you want to build template driven forms (includes
+                  <code>NgModel</code>)</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>>ReactiveFormsModule</code>
+                </td>
+                <td>
+                  <code>@angular/forms</code>
+                </td>
+                <td>When you want to build reactive forms</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>RouterModule</code>
+                </td>
+                <td>
+                  <code>@angular/router</code>
+                </td>
+                <td>When you want to use
+                  <code>RouterLink</code>,
+                  <code>.forRoot()</code>, and
+                  <code>.forChild()</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>HttpClientModule</code>
+                </td>
+                <td>
+                  <code>@angular/common/http</code>
+                </td>
+                <td>When you want to talk to a server</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>Importing modules</h3>
+          <p>When you use these Angular modules, import them in
+            <code>AppModule</code>, or your feature module as appropriate, and list them in the
+            <code>@NgModule</code> imports array. For example, in the basic app generated by the CLI, BrowserModule is the first import at the top
+            of the
+            <code>AppModule</code>,
+            <code>app.module.ts</code>.</p>
+          <pre>
+               <code>
+        /* import modules so that AppModule can access them */
+        import { BrowserModule } from '@angular/platform-browser';
+        import { NgModule } from '@angular/core';
+          
+        import { AppComponent } from './app.component';
+          
+        @NgModule({
+          declarations: [
+            AppComponent
+          ],
+          imports: 
+          [ /* add modules here so Angular knows to use them */
+            BrowserModule,
+          ],
+          providers: [],
+          bootstrap: [AppComponent]
+        })
+        export class AppModule { }
+               </code>
+             </pre>
+          <p>The imports at the top of the array are JavaScript import statements while the imports array within
+            <code>@NgModule</code> is Angular specific. For more information on the difference, see JavaScript Modules vs. NgModules.</p>
+          <h3>
+            <code>BrowserModule</code> and
+            <code>CommonModule</code>
+          </h3>
+          <ul>
+            <li>BrowserModule imports CommonModule, which contributes many common directives such as ngIf and ngFor. Additionally,
+              BrowserModule re-exports CommonModule making all of its directives available to any module that imports BrowserModule.
+            </li>
+            <li>For apps that run in the browser, import BrowserModule in the root AppModule because it provides services that are
+              essential to launch and run a browser app. BrowserModule’s providers are for the whole app so it should only be
+              in the root module, not in feature modules. Feature modules only need the common directives in CommonModule; they
+              don’t need to re-install app-wide providers.
+            </li>
+            <li>If you do import BrowserModule into a lazy loaded feature module, Angular returns an error telling you to use CommonModule
+              instead.
+          </ul>
+        </section>
+      
+        <section class="main-section" id="Types_of_Feature_Modules">
+          <header>
+            <h2>Types of Feature Modules</h2>
+          </header>
+          <p>There are five general categories of feature modules which tend to fall into the following groups:</p>
+      
+          <ul>
+            <li>Domain feature modules.</li>
+            <li>Routed feature modules.</li>
+            <li>Routing modules.</li>
+            <li>Service feature modules.</li>
+            <li>Widget feature modules.</li>
+          </ul>
+          <p>While the following guidelines describe the use of each type and their typical characteristics, in real world apps,
+            you may see hybrids.</p>
+          <h3>Domain:</h3>
+          <p>Domain feature modules deliver a user experience dedicated to a particular application domain like editing a customer
+            or placing an order.
+            <br> They typically have a top component that acts as the feature root and private, supporting sub-components descend
+            from it.
+            <br> Domain feature modules consist mostly of declarations. Only the top component is exported.
+            <br> Domain feature modules rarely have providers. When they do, the lifetime of the provided services should be the
+            same as the lifetime of the module.
+            <br> Domain feature modules are typically imported exactly once by a larger feature module.
+            <br> They might be imported by the root AppModule of a small application that lacks routing.</p>
+          <h3>Routed:</h3>
+          <p>Routed feature modules are domain feature modules whose top components are the targets of router navigation routes.
+            <br> All lazy-loaded modules are routed feature modules by definition.
+            <br> Routed feature modules don’t export anything because their components never appear in the template of an external
+            component.
+            <br> A lazy-loaded routed feature module should not be imported by any module. Doing so would trigger an eager load,
+            defeating the purpose of lazy loading.That means you won’t see them mentioned among the AppModule imports. An eager
+            loaded routed feature module must be imported by another module so that the compiler learns about its components.
+            <br> Routed feature modules rarely have providers for reasons explained in Lazy Loading Feature Modules. When they do,
+            the lifetime of the provided services should be the same as the lifetime of the module. Don't provide application-wide
+            singleton services in a routed feature module or in a module that the routed module imports.</p>
+          <h3>Routing:</h3>
+          <p>A routing module provides routing configuration for another module and separates routing concerns from its companion
+            module.
+            <br> A routing module typically does the following:
+            <ul>
+              <li>Defines routes.</li>
+              <li>Adds router configuration to the module's imports.</li>
+              <li>Adds guard and resolver service providers to the module's providers.</li>
+              <li>The name of the routing module should parallel the name of its companion module, using the suffix "Routing". For
+                example,
+                <code>FooModule</code> in
+                <code>foo.module.ts</code> has a routing module named
+                <code>FooRoutingModule</code> in
+                <code>foo-routing.module.ts</code>. If the companion module is the root AppModule, the AppRoutingModule adds router configuration to its imports
+                with RouterModule.forRoot(routes). All other routing modules are children that import
+                <code>RouterModule.forChild(routes)</code>.</li>
+              <li>A routing module does not have its own declarations. Components, directives, and pipes are the responsibility of
+                the feature module, not the routing module.</li>
+              <li>A routing module re-exports the
+                <code>RouterModule</code> as a convenience so that components of the companion module have access to router directives such as
+                <code>RouterLink</code> and
+                <code>RouterOutlet</code>.</li>
+              <li>A routing module should only be imported by its companion module.</li>
+            </ul>
+          </p>
+          <h3>Service:</h3>
+          <p>Service modules provide utility services such as data access and messaging. Ideally, they consist entirely of providers
+            and have no declarations. Angular's
+            <code>HttpClientModule</code> is a good example of a service module.
+            <br> The root
+            <code>AppModule</code> is the only module that should import service modules.</p>
+        </section>
+      
+        <section class="main-section" id="Entry_Components">
+          <header>
+            <h2>Entry Components</h2>
+          </header>
+          <p>An entry component is any component that Angular loads imperatively, (which means you’re not referencing it in the
+            template), by type. You specify an entry component by bootstrapping it in an NgModule, or including it in a routing
+            definition.
+          </p>
+          <p>There are two main kinds of entry components:
+            <ul>
+              <li>The bootstrapped root component.</li>
+              <li>A component you specify in a route definition.</li>
+            </ul>
+          </p>
+          <h3>A bootstrapped entry component</h3>
+          <p>The following is an example of specifying a bootstrapped component,
+            <code>AppComponent</code>, in a basic
+            <code>app.module.ts</code>:</p>
+          <pre>
+              <code>
+      gModule({
+      declarations: [
+        AppComponent
+      ],
+      imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule
+      ],
+      providers: [],
+      bootstrap: [AppComponent] // bootstrapped entry component
+      
+              </code>
+            </pre>
+          <p>A bootstrapped component is an entry component that Angular loads into the DOM during the bootstrap process (application
+            launch). Other entry components are loaded dynamically by other means, such as with the router.</p>
+          <p>Angular loads a root AppComponent dynamically because it's listed by type in
+            <code>@NgModule.bootstrap.</code>
+          </p>
+          <p>A bootstrapped component is necessarily an entry component because bootstrapping is an imperative process, thus it
+            needs to have an entry component.</p>
+          <h3>A routed entry component</h3>
+          <p>The second kind of entry component occurs in a route definition like this:</p>
+          <pre>
+              <code>
+      nst routes: Routes = [
+      {
+        path: '',
+        component: CustomerListComponent
+      }
+      
+              </code>
+            </pre>
+          <p>A route definition refers to a component by its type with component:
+            <code>CustomerListComponent</code>.</p>
+          <p>All router components must be entry components. Because this would require you to add the component in two places (router
+            and
+            <code>entryComponents</code>) the Compiler is smart enough to recognize that this is a router definition and automatically add the router component
+            into
+            <code>entryComponents</code>.</p>
+          <h3>
+            <code>entryComponents</code> and the compiler</h3>
+          <ul>
+            <li>For production apps you want to load the smallest code possible. The code should contain only the classes that you
+              actually need and exclude components that are never used. For this reason, the Angular compiler only generates
+              code for components which are reachable from the entryComponents; This means that adding more references to @NgModule.declarations
+              does not imply that they will necessarily be included in the final bundle.</li>
+            <li>In fact, many libraries declare and export components you'll never use. For example, a material design library will
+              export all components because it doesn’t know which ones you will use. However, it is unlikely that you will use
+              them all. For the ones you don't reference, the tree shaker drops these components from the final code package.</li>
+            <li>If a component isn't an entry component and isn't found in a template, the tree shaker will throw it away. So, it's
+              best to add only the components that are truly entry components to help keep your app as trim as possible.</li>
+          </ul>
+        </section>
+      
+        <section class="main-section" id="Feature_Modules">
+          <header>
+            <h2>Feature Modules</h2>
+          </header>
+          <p>Prerequisites</p>
+          <ul>
+            <li><a href="#">Bootstrapping.</a></li>
+            <li><a href="#">JavaScript Modules vs. NgModules.</a></li>
+            <li><a href="#">Frequently Used Modules.</a></li>
+          </ul>
+          <p>As your app grows, you can organize code relevant for a specific feature. This helps apply clear boundaries for features.
+            With feature modules, you can keep code related to a specific functionality or feature separate from other code.
+            Delineating areas of your app helps with collaboration between developers and teams, separating directives, and managing
+            the size of the root module.</p>
+          <h3>Feature modules vs. root modules</h3>
+          <p>A feature module is an organizational best practice, as opposed to a concept of the core Angular API. A feature module
+            delivers a cohesive set of functionality focused on a specific application need such as a user workflow, routing,
+            or forms. While you can do everything within the root module, feature modules help you partition the app into focused
+            areas. A feature module collaborates with the root module and with other modules through the services it provides
+            and the components, directives, and pipes that it shares.</p>
+          <h3>How to make a feature module</h3>
+          <p>Assuming you already have a CLI generated app, create a feature module using the CLI by entering the following command
+            in the root project directory. Replace CustomerDashboard with the name of your module. You can omit the "Module"
+            suffix from the name because the CLI appends it:</p>
+          <code>ng generate module CustomerDashboard</code>
+          <p>This causes the CLI to create a folder called customer-dashboard with a file inside called customer-dashboard.module.ts
+            with the following contents:</p>
+          <pre>
+            <code>
+      port { NgModule } from '@angular/core';
+      port { CommonModule } from '@angular/common';
+      
+      gModule({
+      imports: [
+        CommonModule
+      ],
+      declarations: []
+      
+      port class CustomerDashboardModule { }
+            </code>
+          </pre>
+          <p>The structure of an NgModule is the same whether it is a root module or a feature module. In the CLI generated feature
+            module, there are two JavaScript import statements at the top of the file: the first imports
+            <code>NgModule</code>, which, like the root module, lets you use the
+            <code>@NgModule</code> decorator; the second imports
+            <code>CommonModule</code>, which contributes many common directives such as
+            <code></code>ngIf</code> and
+            <code>ngFor</code>. Feature modules import
+            <code>CommonModule</code> instead of
+            <code>BrowserModule</code>, which is only imported once in the root module. CommonModule only contains information for common directives such
+            as ngIf and ngFor which are needed in most templates, whereas BrowserModule configures the Angular app for the browser
+            which needs to be done only once.</p>
+          <p>The structure of an NgModule is the same whether it is a root module or a feature module. In the CLI generated feature
+            module, there are two JavaScript import statements at the top of the file: the first imports NgModule, which, like
+            the root module, lets you use the @NgModule decorator; the second imports CommonModule, which contributes many common
+            directives such as ngIf and ngFor. Feature modules import CommonModule instead of BrowserModule, which is only imported
+            once in the root module. CommonModule only contains information for common directives such as ngIf and ngFor which
+            are needed in most templates, whereas BrowserModule configures the Angular app for the browser which needs to be
+            done only once.</p>
+          <p>The declarations array is available for you to add declarables, which are components, directives, and pipes that belong
+            exclusively to this particular module. To add a component, enter the following command at the command line where
+            customer-dashboard is the directory where the CLI generated the feature module and CustomerDashboard is the name
+            of the component:</p>
+          <code>ng generate component customer-dashboard/CustomerDashboard</code>
+          <p>You may also be interested in the following:</p>
+          <ul>
+            <li>Lazy Loading Modules with the Angular Router.</li>
+            <li>Providers.</li>
+            <li>Types of Feature Modules.</li>
+          </ul>
+        </section>
+      
+        <section class="main-section" id="Providers">
+          <header>
+            <h2>Providers</h2>
+          </header>
+          <p>Prerequisites</p>
+          <ul>
+            <li><a href="#">A basic understanding of Bootstrapping.</a></li>
+            <li><a href="#">Familiarity with Frequently Used Modules.</a></li>
+          </ul>
+          <p>For the final sample app using the provider that this page describes, see the live example / download example.</p>
+          <p>A provider is an instruction to the DI system on how to obtain a value for a dependency. Most of the time, these dependencies
+            are services that you create and provide.</p>
+          <h3>Providing a service</h3>
+          <p>If you already have a CLI generated app, create a service using the following CLI command in the root project directory.
+            Replace User with the name of your service.</p>
+          <code>ng generate service User</code>
+          <p>This command creates the following
+            <code>UserService</code> skeleton:</p>
+          <pre>
+            <code>
+      port { Injectable } from '@angular/core';
+      
+      njectable({
+      providedIn: 'root',
+      
+      port class UserService {
+      
+            </code>
+          </pre>
+          <p>You can now inject
+            <code>UserService</code> anywhere in your application.</p>
+          <p>The service itself is a class that the CLI generated and that's decorated with
+            <code>@Injectable</code>. By default, this decorator is configured with a
+            <code>providedIn</code> property, which creates a provider for the service. In this case, providedIn:
+            <code>'root'</code> specifies that the service should be provided in the root injector.</p>
+          <h3>Provider Scope</h3>
+          <p>When you add a service provider to the root application injector, it’s available throughout the app. Additionally,
+            these providers are also available to all the classes in the app as long they have the lookup token.</p>
+          <p>You should always provide your service in the root injector unless there is a case where you want the service to be
+            available only if the consumer imports a particular
+            <code>@NgModule</code>.</p>
+          <h3>providedIn and NgModules</h3>
+          <p>It's also possible to specify that a service should be provided in a particular @NgModule. For example, if you don't
+            want UserService to be available to applications unless they import a UserModule you've created, you can specify
+            that the service should be provided in the module:</p>
+          <pre><code>
+      port { Injectable } from '@angular/core';
+      port { UserModule } from './user.module';
+      
+      njectable({
+      providedIn: UserModule,
+      
+      port class UserService {
+      
+        </code></pre>
+          <h3>More on NgModules</h3>
+          <ul>
+            <li>Singleton Services, which elaborates on the concepts covered on this page.</li>
+            <li>Lazy Loading Modules.</li>
+            <li>Tree-shakable Providers.</li>
+            <li>NgModule FAQ.</li>
+          </ul>
+        </section>
+      
+        <section class="main-section" id="Singleton_Services">
+          <header><h2>Singleton Services</h2></header>
+          <h3>Prerequisites</h3>
+          <ul>
+            <li><a href="#">A basic understanding of Bootstrapping.</a></li>
+            <li><a href="#">Familiarity with Providers.</a></li>
+          </ul>
+          <h3>Providing a singleton service</h3>
+          <p>There are two ways to make a service a singleton in Angular:</p>
+          <ul>
+            <li>Declare that the service should be provided in the application root.</li>
+            <li>Include the service in the
+              <code>AppModule</code> or in a module that is only imported by the
+              <code>AppModule</code>.</li>
+          </ul>
+          <p>Beginning with Angular 6.0, the preferred way to create a singleton services is to specify on the service that it should
+            be provided in the application root. This is done by setting providedIn to root on the service's
+            <code>@Injectable</code> decorator: src/app/user.service.0.ts
+          </p>
+          <pre>
+              <code>
+      port { Injectable } from '@angular/core';
+      
+      njectable({
+      providedIn: 'root',
+      
+      port class UserService {
+      
+              </code>
+            </pre>
+          <h3>Prevent reimport of the
+            <code>CoreModule</code>
+          </h3>
+          <p>Only the root AppModule should import the
+            <code>CoreModule</code>. If a lazy-loaded module imports it too, the app can generate multiple instances of a service.</p>
+          <p>To guard against a lazy-loaded module re-importing
+            <code>CoreModule</code>, add the following
+            <code>CoreModule</code> constructor.</p>
+          <pre>
+            <code>
+      nstructor (@Optional() @SkipSelf() parentModule: CoreModule){
+      if (parentModule) {
+        throw new Error(
+          'CoreModule is already loaded. 
+          Import it in the AppModule only');
+      }
+      
+            </code>
+          </pre>
+          <h3>More on NgModules</h3>
+          <ul>
+            <li>Sharing Modules, which elaborates on the concepts covered on this page.</li>
+            <li>Lazy Loading Modules.</li>
+            <li>NgModule FAQ.</li>
+          </ul>
+        </section>
+      
+        <section class="main-section" id="Sharing_NgModules">
+          <header><h2>Sharing NgModules</h2></header>
+          <h3>Prerequisites</h3>
+          <p>A basic understanding of the following:</p>
+          <ul>
+            <li><a href="#">Feature Modules.</a></li>
+            <li><a href="#">JavaScript Modules vs. NgModules.</a></li>
+            <li><a href="#">Frequently Used Modules.</a></li>
+            <li><a href="#">Types of Feature Modules.</a></li>
+            <li><a href="#">Routing and Navigation.</a></li>
+          </ul>
+          <h3>High level view</h3>
+          <p>There are three main steps to setting up a lazy loaded feature module:</p>
+          <ol>
+            <li>Create the feature module.</li>
+            <li>Create the feature module’s routing module.</li>
+            <li>Configure the routes.</li>
+          </ol>
+          <h3>Set up an app</h3>
+          <p>If you don’t already have an app, you can follow the steps below to create one with the CLI. If you do already have
+            an app, skip to Configure the routes. Enter the following command where
+            <code>customer-app</code> is the name of your app:</p>
+          <code>ng new customer-app --routing</code>
+          <p>This creates an app called customer
+            <code>-app</code> and the
+            <code>--routing</code> flag generates a file called
+            <code>app-routing.module.ts</code>, which is one of the files you need for setting up lazy loading for your feature module. Navigate into the project
+            by issuing the command
+            <code>cd customer-app</code>.</p>
+          <h3>Set up the UI</h3>
+          <p>Though you can type the URL into the address bar, a nav is easier for the user and more common. Replace the default
+            placeholder markup in
+            <code>app.component.html</code> with a custom nav so you can easily navigate to your modules in the browser:</p>
+          <p>To see your app in the browser so far, enter the following command in the terminal window:</p>
+          <code>ng serve</code>
+        </section>
+      
+        <section class="main-section" id="NgModule_API">
+          <header><h2>NgModule API</h2></header>
+          <h3>Prerequisites</h3>
+          <p>A basic understanding of the following concepts:</p>
+          <ul>
+            <li><a href="#">Bootstrapping.</a></li>
+            <li><a href="#">JavaScript Modules vs. NgModules.</a></li>
+          </ul>
+          <h3>Purpose of
+            <code>@NgModule</code>
+          </h3>
+          <p>At a high level, NgModules are a way to organize Angular apps and they accomplish this through the metadata in the
+            <code>@NgModule</code> decorator. The metadata falls into three categories:</p>
+          <ul>
+            <li>
+              <strong>Static:</strong> Compiler configuration which tells the compiler about directive selectors and where in templates
+              the directives should be applied through selector matching. This is configured via the
+              <code>declarations</code> array.</li>
+            <li>
+              <strong>Runtime</strong>: Injector configuration via the
+              <code>providers</code> array.</li>
+            <li>
+              <strong>Composability/Grouping</strong>: Bringing
+              <code>NgModules</code> together and making them available via the imports and exports arrays.</li>
+          </ul>
+          <pre>
+            <code>
+      gModule({
+      // Static, that is compiler configuration
+      declarations: [], // Configure the selectors
+      entryComponents: [], // Generate the host factory
+      
+      // Runtime, or injector configuration
+      providers: [], // Runtime injector configuration
+      
+      // Composability / Grouping
+      imports: [], // composing NgModules together
+      exports: [] // making NgModules available to 
+      other parts of the app
+      
+            </code>
+          </pre>
+          <h3>More on NgModules</h3>
+          <ul>
+            <li>Feature Modules.</li>
+            <li>Entry Components.</li>
+            <li>Providers.</li>
+            <li>Types of Feature Modules.</li>
+          </ul>
+        </section>
+      
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>
