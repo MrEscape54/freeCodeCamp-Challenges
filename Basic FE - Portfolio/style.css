@@ -4,7 +4,9 @@ body{
 }
 
 .navbar{text-transform: uppercase;}
+
 .navbar-brand{font-family: "Rock Salt"; font-size: 1em !important;}
+
 .navbar-brand span{
     display: inline-block;
     font-family: Shadows Into Light;
@@ -15,12 +17,14 @@ body{
     border-radius: 12px;
     margin-right: 5px;
 }
+
 .nav-item{padding: 0px 26px;}
+
 .nav-item a{font-size: 0.85em; letter-spacing: 1.5px;}
+
 .dropdown-menu a{text-align: center;}
 
 #top{
-  height: 62px;
   display: block;
 }
 
@@ -52,14 +56,15 @@ body{
 
 .main{position: relative; overflow: hidden;}
 
-.main img{max-width: 100vw;}
- .main h2, .main h3{    
+.main img{max-width: 100vw; min-height: 100vh;}
+
+.main h1, .main h3{    
     position: absolute;
     text-align: center;
     padding: 0 10px;
     font-weight: 600;
     font-size: 2em;
-    top: 20%;
+    top: 33%;
     right: 0;
     left: 0;
     color: #fff;
@@ -70,8 +75,8 @@ body{
 
 .main h3{
     font-weight: 500;
-    font-size: 1.1em;
-    top: 71%;
+    font-size: 1.3em;
+    top: 55%;
 }
 
 .about{
@@ -87,6 +92,7 @@ body{
 }
 
 .portfolios-sm{background-color: #F2F2F2; padding: 40px 0;}
+
 .portfolios-sm li{
     position: relative;
     width: 350px; 
@@ -111,7 +117,9 @@ body{
 }
 
 .contact{margin-top: 20px;}
+
 #contact .form-row{margin-top: 20px;}
+
 .dropdown-item.active, .dropdown-item:active{background-color: #FFF !important; color: #16181b !important;}
 
 form i{color: grey;}
@@ -120,11 +128,15 @@ form i{color: grey;}
     border-color: #cfd5db !important;
     box-shadow: none !important;
 }
+
 .btn-dark{background-color: #51515a; color: #FFF;}
 
 footer{margin-top: 20px; background-color: #000;}
+
 .foot-social{width: 90%; margin: 0 auto;}
+
 footer li{border-bottom: 0.5px solid #999; padding-left: 0 !important;}
+
 .list-group-item{
     background-color: #000 !important; 
     margin: 0 !important; 
@@ -158,6 +170,7 @@ footer li{border-bottom: 0.5px solid #999; padding-left: 0 !important;}
     border-bottom: none !important;
     }
 }
+
 @media (min-width: 1024px) {
     .portfolios-sm ul{justify-content: space-around !important;}
     .main h2{font-size: 3em;}
@@ -166,7 +179,6 @@ footer li{border-bottom: 0.5px solid #999; padding-left: 0 !important;}
     background-color: #FFF; 
     color: #000;
     }
-
 
     .list-group-item a:hover{color: #FFF !important; text-decoration: none;}
 }
