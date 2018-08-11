@@ -18,7 +18,7 @@ body{
     margin-right: 5px;
 }
 
-.nav-item{padding: 0px 26px;}
+.nav-item{padding: 0px 12px;}
 
 .nav-item a{font-size: 0.85em; letter-spacing: 1.5px;}
 
@@ -80,7 +80,7 @@ body{
 }
 
 .about{
-    padding: 20px 40px;
+    padding: 77px 40px 20px;
     text-align: center;
     font-size: 1.1em;
     line-height: 2em;
@@ -91,29 +91,47 @@ body{
     padding-bottom: 10px;
 }
 
-.portfolios-sm{background-color: #F2F2F2; padding: 40px 0;}
+.portfolios-sm{background-color: #F2F2F2; padding: 77px 0 40px;}
 
 .portfolios-sm li{
     position: relative;
-    width: 350px; 
-    background-size: cover; 
-    background-image: url(img/ports.png); 
+    background-color: #FFF;
+    width: 350px;
+    background-size: cover;
     margin: 20px 10px;
-    height: 450px; 
+    height: 215px;
+    border: 0.5px solid #7d7d7d;
 }
 .portfolios-sm li a{
     position: absolute;
     left: 50%;
-    top: 50%;
+    bottom: -7px;
     transform: translate(-50%, -50%);
-    background-color: transparent;
-    background-size: cover; 
-    width: 150px;
-    border: 2px solid #FFF;
+    background-color: #000;
+    background-size: cover;
+    width: 326px;
     color: #FFF;
     font-size: 0.7em;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.portfolios-sm img{
+    width: 100%;
+    padding-top: 10px;
+}
+
+#others{
+    background-color: #000;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 10px;
+    margin: 10px auto 0;
+    display: block;
+    width: 130px;
+    text-align: center;
 }
 
 .contact{margin-top: 20px;}
@@ -158,16 +176,20 @@ footer li{border-bottom: 0.5px solid #999; padding-left: 0 !important;}
     }
    
     .portfolios-sm li{
-    width: 220px; 
-    margin: 0 10px;
-    height: 300px; 
+        width: 325px;
+        margin: 10px 10px;
+        height: 203px;
     }
     .main h3{
         font-size: 1.5em;
         top: 46%;
     }
     .list-group-item{
-    border-bottom: none !important;
+        border-bottom: none !important;
+    }
+
+    .portfolios-sm li a{
+        width: 301px;
     }
 }
 
